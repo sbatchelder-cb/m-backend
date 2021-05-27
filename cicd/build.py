@@ -1,6 +1,6 @@
 import time
 
-print("bulding m-accounts...")
+print("bulding m-backend...")
 
 time.sleep(3)
 

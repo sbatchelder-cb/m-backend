@@ -1,6 +1,6 @@
 import time
 
-print("testing m-accounts...")
+print("testing m-backend...")
 
 time.sleep(3)
 

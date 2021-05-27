@@ -1,6 +1,6 @@
 import time
 
-print("deploying m-accounts...")
+print("deploying m-backend...")
 
 time.sleep(3)
 
