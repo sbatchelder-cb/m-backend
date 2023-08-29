@@ -1,11 +1,8 @@
 
 pipeline {
-  agent none
-  stages {
-    stage ('Build') {
-      agent {
-        kubernetes {
-    yaml """
+  agent {
+    kubernetes {
+      yaml """
 apiVersion: v1
 kind: Pod
 spec:
@@ -14,8 +11,10 @@ spec:
     image: python:alpine3.13
     tty: true
 """
-        }
-      }
+    }
+  }
+  stages {
+    stage ('Build') {
       steps {
         container("python") {
           sh 'python3 ./cicd/build.py'
@@ -23,19 +22,6 @@ spec:
       }
     }
     stage ('Test') {
-      agent {
-        kubernetes {
-    yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: python
-    image: python:alpine3.13
-    tty: true
-"""
-        }
-      }
       steps {
         container("python") {
           sh 'python3 ./cicd/test.py'
@@ -43,19 +29,6 @@ spec:
       }
     }
     stage ('Image Push') {
-      agent {
-        kubernetes {
-    yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: python
-    image: python:alpine3.13
-    tty: true
-"""
-        }
-      }
       steps {
         container("python") {
           sh 'python3 ./cicd/imagePush.py'
