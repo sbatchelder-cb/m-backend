@@ -1,7 +1,7 @@
 import time
 
-print("bulding m-backend...")
+print("building m-backend...")
 
-time.sleep(3)
+time.sleep(1)
 
 print("build complete") 

@@ -2,6 +2,6 @@ import time
 
 print("Pushing m-backend image...")
 
-time.sleep(3)
+time.sleep(1)
 
 print("Image Push complete") 
